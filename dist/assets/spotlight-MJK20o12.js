@@ -1,0 +1,1 @@
+function r(t){const e=t.currentTarget.getBoundingClientRect();t.currentTarget.style.setProperty("--sx",`${t.clientX-e.left}px`),t.currentTarget.style.setProperty("--sy",`${t.clientY-e.top}px`)}export{r as s};
