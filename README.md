@@ -48,7 +48,7 @@ Design tokens (colors, fonts, spacing) are CSS custom properties at the top of
 
 ## Configuration
 
-- **Google Analytics** — replace `G-XXXXXXXXXX` (two spots in `index.html`).
+- **Google Analytics** — replace `9345662626` (two spots in `index.html`).
   Events (`generate_lead`, `contact_click`, `select_content`) fire via
   `src/lib/analytics.js`.
 - **Responsive** — handled with real media queries in `styles.css`
