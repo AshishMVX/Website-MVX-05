@@ -54,12 +54,12 @@ export const CONTACT_PHONE_DISPLAY = '+91 XX XXXX XXXX';
 /** PLACEHOLDER office info — replace with the real address before launch. */
 export const OFFICE = {
   line1: 'Mervix Technology Pvt Ltd',
-  line2: 'Bengaluru, Karnataka, India',
+  line2: 'Coimbatore, Tamil Nadu, India',
   hours: [
-    { days: 'Monday – Friday', time: '9:00 AM – 6:00 PM IST' },
+    { days: 'Monday – Friday', time: '6:30 PM – 3:30 AM IST' },
     { days: 'Saturday – Sunday', time: 'Closed' },
   ],
-  mapQuery: 'Bengaluru, Karnataka, India',
+  mapQuery: 'Coimbatore, Tamil Nadu, India',
 };
 
 /** PLACEHOLDER — inert until real profile URLs are added. */
