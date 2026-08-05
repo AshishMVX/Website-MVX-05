@@ -46,7 +46,7 @@ export const missionCards = [
 
 export const careerTags = ['Engineering', 'AI / ML', 'Design', 'Growth', 'Infra'];
 
-export const CONTACT_EMAIL = 'hello@mervixtechnology.com';
+export const CONTACT_EMAIL = 'hel@mervixtechnology.com';
 
 /** PLACEHOLDER — replace with the real number (with country code) before launch. */
 export const CONTACT_PHONE_DISPLAY = '+91 XX XXXX XXXX';
