@@ -7,24 +7,14 @@ import { team, companies, CONTACT_EMAIL } from '../data/content.js';
 import { usePageMeta } from '../lib/usePageMeta.js';
 import { Link } from '../lib/router.jsx';
 import { spotlight } from '../lib/spotlight.js';
-
-const TEAM_PHOTOS = [
-  'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=480&h=640&fit=crop&crop=face&auto=format',
-  'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=480&h=640&fit=crop&crop=face&auto=format',
-  'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=480&h=640&fit=crop&crop=face&auto=format',
-  'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=480&h=640&fit=crop&crop=face&auto=format',
-  'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=480&h=640&fit=crop&crop=face&auto=format',
-  'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=480&h=640&fit=crop&crop=face&auto=format',
-  'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=480&h=640&fit=crop&crop=face&auto=format',
-  'https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=480&h=640&fit=crop&crop=face&auto=format',
-];
+import { teamPhotos } from '../assets/teamPhotos.js';
 
 const companyByName = Object.fromEntries(companies.map((c) => [c.name, c]));
 const GROUP = { color: '#2B7FD4', bar: 'linear-gradient(90deg,#2FA84F,#1E9C8C,#2B7FD4)' };
 
-const teamWithPhotos = team.map((member, i) => ({
+const teamWithPhotos = team.map((member) => ({
   ...member,
-  image: TEAM_PHOTOS[i % TEAM_PHOTOS.length],
+  image: teamPhotos[member.name] || null,
   colorData: member.company === 'Mervix Group' ? GROUP : companyByName[member.company],
 }));
 
@@ -124,12 +114,18 @@ export default function MeetTheTeamPage() {
               <div className="mtt-card-bar" style={{ background: member.colorData?.bar }} />
 
               {/* photo */}
-              <img
-                src={member.image}
-                alt={member.role}
-                className="mtt-card-photo"
-                loading="lazy"
-              />
+              {member.image ? (
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="mtt-card-photo"
+                  loading="lazy"
+                />
+              ) : (
+                <div className="mtt-card-photo mtt-card-photo--initials" aria-label={member.name}>
+                  {member.name.split(' ').slice(0, 2).map((w) => w[0]).join('')}
+                </div>
+              )}
 
               {/* bottom overlay */}
               <div className="mtt-card-overlay">

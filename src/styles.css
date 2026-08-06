@@ -645,6 +645,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   filter: grayscale(1); transition: filter .4s ease;
 }
 .team-marq-card:hover .team-marq-photo { filter: grayscale(0); }
+.team-marq-photo--initials {
+  display: flex; align-items: center; justify-content: center;
+  background: #1a2230; color: rgba(255,255,255,.55);
+  font-size: 2rem; font-weight: 600; letter-spacing: .05em;
+  filter: none !important;
+}
 .team-marq-overlay {
   position: absolute; bottom: 0; left: 0; right: 0;
   background: rgba(250,251,252,.88); backdrop-filter: blur(6px);
@@ -775,6 +781,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   transition: filter .45s ease, transform .45s ease;
 }
 .mtt-card:hover .mtt-card-photo { filter: grayscale(0) brightness(1); transform: scale(1.04); }
+.mtt-card-photo--initials {
+  display: flex; align-items: center; justify-content: center;
+  background: #1a2230; color: rgba(255,255,255,.45);
+  font-size: 3rem; font-weight: 600; letter-spacing: .06em;
+  filter: none !important; transform: none !important;
+}
 
 .mtt-card-overlay {
   position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
