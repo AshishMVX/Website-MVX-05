@@ -92,9 +92,9 @@ export const BUDGET_OPTIONS = [
  * Swap each entry's `name` for a real person when ready.
  */
 export const team = [
-  { name: 'Kavireshi T S', role: 'Chief Executive Office', company: 'Mervix Group', focus: 'Sets the direction for all four companies and how they work together.' },
-  { name: 'Sathya Palanisamy', role: 'Chief Operating Officer', company: 'Mervix Group', focus: 'Keeps delivery, hiring, and operations running across the group.' },
-  { name: 'Lakavath Ashish Sai Naik', role: 'Senior Software Engineer', company: 'GeoLink', focus: 'Leads the platform and applied AI engineering teams.' },
+  { name: 'Kavireshi T S', role: 'Chief Executive Officer', company: 'Mervix Group', focus: 'Sets the direction for all four companies and how they work together.' },
+  { name: 'Sathya Palanisamy', role: 'Chief Financial Officer', company: 'Mervix Group', focus: 'Keeps delivery, hiring, and operations running across the group.' },
+  { name: 'Lakavath Ashish Sai Naik', role: 'Acting chief operating officer/Product manager ', company: 'GeoLink', focus: 'Leads the platform and applied AI engineering teams.' },
   { name: 'Archana Rajan Nair', role: 'Junior Executive', company: 'Mervix Group', focus: 'Handles the core operations of the company.' },
   { name: 'Babu Shivesh', role: 'Network Architect', company: 'CoreCyrus', focus: 'Responsible for the networking and hardware of the company' },
   { name: 'Praveen Raj R', role: 'Junior Associate', company: 'Mervix Group', focus: 'Handles the core operations of the company.' },
