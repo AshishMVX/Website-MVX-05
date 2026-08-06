@@ -4,6 +4,9 @@ import Ramya from "./Team Images/Ramya Srinivas Reddy.png";
 import Praveen from "./Team Images/Praveen Raj R.png";
 import kavi from "./Team Images/Kavireshi T S.png";
 import Shibin from "./Team Images/Shibin Fathima Z.png"
+import shivesh from "./Team Images/Babu Shivesh.png"
+import Archana from "./Team Images/Archana Rajan Nair.png"
+
 
 /** Map each team member's name to their local headshot import.
  *  Add entries here as photos are added to src/assets/Team Images/. */
@@ -14,4 +17,7 @@ export const teamPhotos = {
   'Shibin Fathima Z':Shibin,
   'Kavireshi T S':kavi,
   'Praveen Raj R':Praveen,
+  'Babu Shivesh':shivesh,
+  'Archana Rajan Nair':Archana,
 };
+
