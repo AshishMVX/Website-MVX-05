@@ -94,7 +94,7 @@ export const BUDGET_OPTIONS = [
 export const team = [
   { name: 'Kavireshi T S', role: 'Chief Executive Officer', company: 'Mervix Group', focus: 'Sets the direction for all four companies and how they work together.' },
   { name: 'Sathya Palanisamy', role: 'Chief Financial Officer', company: 'Mervix Group', focus: 'Keeps delivery, hiring, and operations running across the group.' },
-  { name: 'Lakavath Ashish Sai Naik', role: 'Acting chief operating officer/Product manager ', company: 'GeoLink', focus: 'Leads the platform and applied AI engineering teams.' },
+  { name: 'Lakavath Ashish Sai Naik', role: 'Acting chief operating officer/Product manager', company: 'GeoLink', focus: 'Lead operations, manage products, optimize processes, drive growth, ensure execution.' },
   { name: 'Archana Rajan Nair', role: 'Junior Executive', company: 'Mervix Group', focus: 'Handles the core operations of the company.' },
   { name: 'Shivesh', role: 'Network Architect', company: 'CoreCyrus', focus: 'Responsible for the networking and hardware of the company' },
   { name: 'Praveen Raj R', role: 'Junior Associate', company: 'Mervix Group', focus: 'Handles the core operations of the company.' },
