@@ -17,7 +17,7 @@ export const teamPhotos = {
   'Shibin Fathima Z':Shibin,
   'Kavireshi T S':kavi,
   'Praveen Raj R':Praveen,
-  'Babu Shivesh':shivesh,
+  'Shivesh':shivesh,
   'Archana Rajan Nair':Archana,
 };
 
