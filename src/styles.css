@@ -84,20 +84,12 @@ body {
 }
 @keyframes lGlowIn { to { opacity: 1; } }
 
-/* ── glass card that wraps logo + wordmark ── */
+/* ── centre group ── */
 .loader-center {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 32px;
-  padding: 52px 60px 44px;
-  background: rgba(255,255,255,.70);
-  border: 1px solid rgba(255,255,255,.9);
-  border-radius: 32px;
-  box-shadow:
-    0 2px 0 rgba(255,255,255,.95) inset,
-    0 24px 64px rgba(14,20,27,.10),
-    0 4px 16px rgba(14,20,27,.06);
   opacity: 0;
   animation: lCenterIn .8s cubic-bezier(.22,1,.36,1) .05s forwards;
 }
