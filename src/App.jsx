@@ -1,5 +1,6 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import { RouterProvider, useRoute } from './lib/router.jsx';
+import Loader from './components/Loader.jsx';
 
 const Home = lazy(() => import('./components/Home.jsx'));
 const TermsAndConditions = lazy(() => import('./components/TermsAndConditions.jsx'));
@@ -11,6 +12,7 @@ const CaseStudyPage = lazy(() => import('./components/CaseStudyPage.jsx'));
 const InsightsPage = lazy(() => import('./components/InsightsPage.jsx'));
 const PostPage = lazy(() => import('./components/PostPage.jsx'));
 const MeetTheTeamPage = lazy(() => import('./components/MeetTheTeamPage.jsx'));
+const JobDetailPage = lazy(() => import('./components/JobDetailPage.jsx'));
 const NotFound = lazy(() => import('./components/NotFound.jsx'));
 
 function Routes() {
@@ -19,6 +21,7 @@ function Routes() {
   if (path === '/terms-and-conditions') return <TermsAndConditions />;
   if (path === '/privacy-policy') return <PrivacyPolicy />;
   if (path === '/careers') return <CareersPage />;
+  if (path.startsWith('/careers/')) return <JobDetailPage slug={path.slice('/careers/'.length)} />;
   if (path === '/contact') return <ContactPage />;
   if (path === '/meet-the-team') return <MeetTheTeamPage />;
   if (path === '/case-studies') return <WorkPage />;
@@ -29,8 +32,11 @@ function Routes() {
 }
 
 export default function App() {
+  const [ready, setReady] = useState(false);
+
   return (
     <RouterProvider>
+      {!ready && <Loader onDone={() => setReady(true)} />}
       <Suspense fallback={<div className="route-loading"><span /></div>}>
         <Routes />
       </Suspense>

@@ -39,35 +39,46 @@ export default function MeetTheTeamPage() {
       <Nav />
 
       {/* ── Hero ── */}
-      <section className="section mtt-hero">
-        <Reveal className="eyebrow">LEADERSHIP</Reveal>
+      <div className="page-hero">
+        <div className="page-hero-copy">
+          <Reveal className="eyebrow">LEADERSHIP</Reveal>
+          <Reveal as="h1" delay={60}>The people who build and lead.</Reveal>
+          <Reveal as="p" delay={120}>
+            Leadership across Mervix Group and all four companies — engineering,
+            design, growth, and infrastructure.
+          </Reveal>
+          <Reveal className="page-hero-tags-row" delay={180}>
+            {companies.map((c) => (
+              <span key={c.name} style={{ color: c.color, background: `${c.color}18`, borderColor: `${c.color}40` }}>
+                {c.name}
+              </span>
+            ))}
+          </Reveal>
+        </div>
 
-        <Reveal as="h1" delay={70} className="mtt-headline">
-          The people who<br />build and lead.
-        </Reveal>
-
-        <Reveal as="p" delay={140} className="mtt-subhead">
-          Leadership across Mervix Group and all four companies — engineering,
-          design, growth, and infrastructure.
-        </Reveal>
-
-        <Reveal className="mtt-stats-row" delay={200}>
-          <div className="mtt-stat">
-            <span className="mtt-stat-num text-grad">{team.length}</span>
-            <span className="mtt-stat-label">Leaders</span>
+        <Reveal className="page-hero-aside" delay={140}>
+          <div className="page-hero-stat-row page-hero-stat-row--3">
+            <div className="page-hero-stat">
+              <span className="page-hero-stat-num text-grad">{team.length}</span>
+              <span className="page-hero-stat-label">Leaders</span>
+            </div>
+            <div className="page-hero-stat">
+              <span className="page-hero-stat-num text-grad">{companies.length}</span>
+              <span className="page-hero-stat-label">Companies</span>
+            </div>
+            <div className="page-hero-stat">
+              <span className="page-hero-stat-num text-grad">1</span>
+              <span className="page-hero-stat-label">Group</span>
+            </div>
           </div>
-          <div className="mtt-stat-sep" />
-          <div className="mtt-stat">
-            <span className="mtt-stat-num text-grad">{companies.length}</span>
-            <span className="mtt-stat-label">Companies</span>
-          </div>
-          <div className="mtt-stat-sep" />
-          <div className="mtt-stat">
-            <span className="mtt-stat-num text-grad">1</span>
-            <span className="mtt-stat-label">Group</span>
+          <div className="page-hero-aside-divider" />
+          <div className="page-hero-aside-tags">
+            {['Engineering', 'Design', 'Growth', 'Infrastructure', 'Operations'].map((d) => (
+              <span key={d} className="page-hero-aside-tag">{d}</span>
+            ))}
           </div>
         </Reveal>
-      </section>
+      </div>
 
       {/* ── Filter ── */}
       <div className="mtt-filter-wrap">

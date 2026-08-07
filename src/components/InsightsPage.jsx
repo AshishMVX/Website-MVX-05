@@ -8,24 +8,46 @@ import { track } from '../lib/analytics.js';
 import { usePageMeta } from '../lib/usePageMeta.js';
 import { spotlight } from '../lib/spotlight.js';
 
+const categories = [...new Set(posts.map((p) => p.category))];
+
 export default function InsightsPage() {
   usePageMeta('Insights', "Notes on building SaaS, applying AI, running infrastructure, and growing brands — from across the Mervix Group.");
   return (
     <div style={{ position: 'relative', width: '100%', overflow: 'hidden' }}>
       <Mesh />
-
       <Nav />
 
-      <section className="section">
-        <div className="section-intro">
+      <div className="page-hero">
+        <div className="page-hero-copy">
           <Reveal className="eyebrow">INSIGHTS</Reveal>
-          <Reveal as="h1" delay={80}>Notes from across the group.</Reveal>
-          <Reveal as="p" delay={140}>
+          <Reveal as="h1" delay={60}>Notes from the field.</Reveal>
+          <Reveal as="p" delay={120}>
             What we're learning building software, applying AI, running
             infrastructure, and putting products in front of people.
           </Reveal>
         </div>
 
+        <Reveal className="page-hero-aside" delay={140}>
+          <div className="page-hero-stat-row">
+            <div className="page-hero-stat">
+              <span className="page-hero-stat-num text-grad">{posts.length}</span>
+              <span className="page-hero-stat-label">Articles</span>
+            </div>
+            <div className="page-hero-stat">
+              <span className="page-hero-stat-num text-grad">{categories.length}</span>
+              <span className="page-hero-stat-label">Topics</span>
+            </div>
+          </div>
+          <div className="page-hero-aside-divider" />
+          <div className="page-hero-aside-tags">
+            {categories.map((cat) => (
+              <span key={cat} className="page-hero-aside-tag">{cat}</span>
+            ))}
+          </div>
+        </Reveal>
+      </div>
+
+      <section className="section">
         <div className="posts-grid">
           {posts.map((post, i) => (
             <Reveal key={post.slug} delay={i * 90}>

@@ -97,14 +97,38 @@ export default function ContactPage() {
       <Mesh />
       <Nav />
 
-      <section className="section contact-page-head">
-        <Reveal className="eyebrow">CONTACT</Reveal>
-        <Reveal as="h1" delay={80}>Let's talk about what you're building.</Reveal>
-        <Reveal as="p" delay={140}>
-          Call, email, or send us a message — whichever's easiest. The right team
-          across GeoLink, SkoutHaus, SkoutsMedia, or CoreCyrus will get back to you.
+      <div className="page-hero">
+        <div className="page-hero-copy">
+          <Reveal className="eyebrow">CONTACT</Reveal>
+          <Reveal as="h1" delay={60}>Let's talk about what you're building.</Reveal>
+          <Reveal as="p" delay={120}>
+            Call, email, or send us a message — whichever's easiest. The right team
+            across GeoLink, SkoutHaus, SkoutsMedia, or CoreCyrus will get back to you.
+          </Reveal>
+        </div>
+        <Reveal className="page-hero-aside" delay={140}>
+          <span className="page-hero-aside-label">Reach us directly</span>
+          <div className="page-hero-aside-meta">
+            <div className="page-hero-aside-meta-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+              {CONTACT_EMAIL}
+            </div>
+            <div className="page-hero-aside-meta-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              {CONTACT_PHONE_DISPLAY}
+            </div>
+            <div className="page-hero-aside-meta-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Coimbatore, India
+            </div>
+          </div>
+          <div className="page-hero-aside-divider" />
+          <div className="page-hero-aside-meta-item" style={{ fontSize: 13, color: 'var(--ink-4)' }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Mon – Fri &nbsp;·&nbsp; 6:30 PM – 3:30 AM IST
+          </div>
         </Reveal>
-      </section>
+      </div>
 
       <section className="section contact-options-section">
         <div className="contact-options">

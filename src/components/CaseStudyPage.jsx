@@ -51,7 +51,7 @@ export default function CaseStudyPage({ slug }) {
       <Nav />
 
       <section className="section case-head">
-        <Reveal as="div" className="case-back">
+        <Reveal as="div" className="page-back">
           <Link to="/case-studies">← Back to case studies</Link>
         </Reveal>
         <Reveal className="eyebrow" delay={40}>{cs.client.toUpperCase()}</Reveal>

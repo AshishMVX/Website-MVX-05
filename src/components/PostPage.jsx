@@ -45,7 +45,7 @@ export default function PostPage({ slug }) {
       <Nav />
 
       <section className="section legal post-body-section">
-        <Reveal as="div" className="case-back">
+        <Reveal as="div" className="page-back">
           <Link to="/insights">← Back to insights</Link>
         </Reveal>
         <div className="legal-head">
