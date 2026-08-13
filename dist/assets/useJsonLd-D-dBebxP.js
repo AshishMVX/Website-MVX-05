@@ -1,1 +1,0 @@
-import{r as n}from"./index-BQabFzpM.js";function o(t){n.useEffect(()=>{if(!t)return;const e=document.createElement("script");return e.type="application/ld+json",e.textContent=JSON.stringify(t),document.head.appendChild(e),()=>e.remove()},[t])}export{o as u};

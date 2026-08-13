@@ -682,6 +682,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .form-error { font-size: 13px; color: #C4463A; }
 .contact-form .btn { align-self: flex-start; }
 .form-sent { font-size: 14.5px; color: var(--teal); font-weight: 500; }
+.form-status-success { font-size: 14.5px; color: var(--teal); font-weight: 500; }
+.form-status-error { font-size: 14px; color: #C4463A; font-weight: 500; line-height: 1.5; }
 .contact-alt { margin-top: 30px; text-align: center; }
 .contact-alt p { font-size: 15px; color: var(--ink-4); }
 .contact-alt a { color: var(--blue); text-decoration: underline; }

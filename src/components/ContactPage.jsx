@@ -11,6 +11,7 @@ import {
 import { track } from '../lib/analytics.js';
 import { usePageMeta } from '../lib/usePageMeta.js';
 
+const FORMSPREE_URL = 'https://formspree.io/f/xdenejvq';
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const INITIAL_FIELDS = {
@@ -22,26 +23,13 @@ function validate(fields) {
   if (!fields.name.trim()) errors.name = 'Please enter your name.';
   if (!fields.email.trim()) errors.email = 'Please enter your email.';
   else if (!EMAIL_RE.test(fields.email.trim())) errors.email = "That email doesn't look right.";
+  if (!fields.phone.trim()) errors.phone = 'Please enter your phone number.';
+  if (!fields.country) errors.country = 'Please select your country.';
   if (!fields.service) errors.service = 'Let us know what you need.';
+  if (!fields.budget) errors.budget = 'Please select a budget range.';
   if (!fields.message.trim()) errors.message = 'Tell us a bit about your project.';
   if (!fields.agree) errors.agree = 'Please accept the privacy policy to continue.';
   return errors;
-}
-
-function mailtoFor(fields) {
-  const subject = encodeURIComponent(`New inquiry from ${fields.name}${fields.company ? ` (${fields.company})` : ''}`);
-  const bodyLines = [
-    `Name: ${fields.name}`,
-    fields.company && `Company: ${fields.company}`,
-    `Email: ${fields.email}`,
-    fields.phone && `Phone: ${fields.phone}`,
-    fields.country && `Country: ${fields.country}`,
-    fields.service && `Service: ${fields.service}`,
-    fields.budget && `Budget: ${fields.budget}`,
-    '',
-    fields.message,
-  ].filter(Boolean);
-  return `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
 }
 
 function PhoneIcon() {
@@ -71,21 +59,49 @@ export default function ContactPage() {
   usePageMeta('Contact', 'Get in touch with Mervix Group — call, email, chat, or send us a message about your project.');
   const [fields, setFields] = useState(INITIAL_FIELDS);
   const [errors, setErrors] = useState({});
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState('idle'); // 'idle' | 'sending' | 'success' | 'error'
 
   const update = (key) => (e) => {
     const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
     setFields((f) => ({ ...f, [key]: value }));
+    // Clear field error on change
+    if (errors[key]) setErrors((prev) => { const next = { ...prev }; delete next[key]; return next; });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const nextErrors = validate(fields);
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length > 0) return;
-    track('generate_lead', { method: 'email', content_type: 'contact_page_form' });
-    window.location.href = mailtoFor(fields);
-    setSent(true);
+
+    setStatus('sending');
+    try {
+      const res = await fetch(FORMSPREE_URL, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          _subject: 'New Contact Form Submission - Mervix',
+          name: fields.name,
+          company: fields.company || '—',
+          email: fields.email,
+          phone: fields.phone,
+          country: fields.country,
+          service: fields.service,
+          budget: fields.budget,
+          message: fields.message,
+        }),
+      });
+      if (res.ok) {
+        track('generate_lead', { method: 'formspree', content_type: 'contact_page_form' });
+        setStatus('success');
+        setFields(INITIAL_FIELDS);
+        setErrors({});
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
   };
 
   const emailHref = `mailto:${CONTACT_EMAIL}`;
@@ -167,6 +183,9 @@ export default function ContactPage() {
         <Reveal className="contact-page-form-wrap">
           <h2>Send us a message</h2>
           <form className="contact-form contact-page-form" onSubmit={handleSubmit} noValidate>
+            {/* Hidden Formspree subject line */}
+            <input type="hidden" name="_subject" value="New Contact Form Submission - Mervix" />
+
             <div className="form-row">
               <div className="form-field">
                 <label htmlFor="c-name">Name</label>
@@ -192,18 +211,26 @@ export default function ContactPage() {
                 {errors.email && <span className="form-error" id="c-email-err">{errors.email}</span>}
               </div>
               <div className="form-field">
-                <label htmlFor="c-phone">Phone <span className="optional">(optional)</span></label>
-                <input id="c-phone" type="tel" autoComplete="tel" value={fields.phone} onChange={update('phone')} />
+                <label htmlFor="c-phone">Phone</label>
+                <input
+                  id="c-phone" type="tel" autoComplete="tel" value={fields.phone} onChange={update('phone')}
+                  aria-invalid={!!errors.phone} aria-describedby={errors.phone ? 'c-phone-err' : undefined}
+                />
+                {errors.phone && <span className="form-error" id="c-phone-err">{errors.phone}</span>}
               </div>
             </div>
 
             <div className="form-row">
               <div className="form-field">
-                <label htmlFor="c-country">Country <span className="optional">(optional)</span></label>
-                <select id="c-country" value={fields.country} onChange={update('country')}>
+                <label htmlFor="c-country">Country</label>
+                <select
+                  id="c-country" value={fields.country} onChange={update('country')}
+                  aria-invalid={!!errors.country} aria-describedby={errors.country ? 'c-country-err' : undefined}
+                >
                   <option value="">Select a country</option>
                   {COUNTRY_OPTIONS.map((c) => <option key={c} value={c}>{c}</option>)}
                 </select>
+                {errors.country && <span className="form-error" id="c-country-err">{errors.country}</span>}
               </div>
               <div className="form-field">
                 <label htmlFor="c-service">Service</label>
@@ -219,11 +246,15 @@ export default function ContactPage() {
             </div>
 
             <div className="form-field">
-              <label htmlFor="c-budget">Budget <span className="optional">(optional)</span></label>
-              <select id="c-budget" value={fields.budget} onChange={update('budget')}>
+              <label htmlFor="c-budget">Budget</label>
+              <select
+                id="c-budget" value={fields.budget} onChange={update('budget')}
+                aria-invalid={!!errors.budget} aria-describedby={errors.budget ? 'c-budget-err' : undefined}
+              >
                 <option value="">Select a range</option>
                 {BUDGET_OPTIONS.map((b) => <option key={b} value={b}>{b}</option>)}
               </select>
+              {errors.budget && <span className="form-error" id="c-budget-err">{errors.budget}</span>}
             </div>
 
             <div className="form-field">
@@ -247,10 +278,20 @@ export default function ContactPage() {
             </label>
             {errors.agree && <span className="form-error" id="c-agree-err">{errors.agree}</span>}
 
-            <button type="submit" className="btn btn-primary">
-              Send message <span style={{ fontSize: 18 }}>→</span>
+            <button type="submit" className="btn btn-primary" disabled={status === 'sending'}>
+              {status === 'sending' ? 'Sending…' : <>Send message <span style={{ fontSize: 18 }}>→</span></>}
             </button>
-            {sent && <p className="form-sent">Opening your email client to send this along — thanks!</p>}
+
+            {status === 'success' && (
+              <p className="form-sent form-status-success">
+                ✓ Message sent — we'll be in touch shortly.
+              </p>
+            )}
+            {status === 'error' && (
+              <p className="form-status-error">
+                Something went wrong. Please try again or email us directly at {CONTACT_EMAIL}.
+              </p>
+            )}
           </form>
         </Reveal>
 
