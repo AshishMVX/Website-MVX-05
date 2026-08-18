@@ -290,7 +290,7 @@ export const caseStudies = [
     summary: 'Took a wellness brand from zero paid presence to a repeatable, profitable acquisition engine in one quarter.',
     tags: ['Performance Marketing', 'Brand Strategy', 'Analytics'],
     stats: [
-      { value: '3x', label: 'Return on ad spend' },
+      { value: '4x', label: 'Return on ad spend' },
       { value: '65%', label: 'Lower cost per acquisition' },
       { value: '90d', label: 'To profitable scale' },
     ],
