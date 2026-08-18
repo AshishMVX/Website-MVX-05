@@ -13,7 +13,8 @@ const NAV_LINKS = [
     label: 'About',
     children: [
       { type: 'hash', to: '#about', label: 'About us' },
-      { type: 'link', to: '/meet-the-team', label: 'Meet the team', highlight: true },
+      // Meet the team: temporarily disabled, re-add when the page comes back
+      // { type: 'link', to: '/meet-the-team', label: 'Meet the team', highlight: true },
     ],
   },
   { type: 'link', to: '/careers', label: 'Careers', trackContentType: 'careers' },

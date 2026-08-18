@@ -4,7 +4,8 @@ import Hero from './Hero.jsx';
 import WhatWeDo from './WhatWeDo.jsx';
 import TheGroup from './TheGroup.jsx';
 import About from './About.jsx';
-import Team from './Team.jsx';
+// Team section: temporarily disabled, re-add when the page comes back
+// import Team from './Team.jsx';
 import Testimonials from './Testimonials.jsx';
 import Careers from './Careers.jsx';
 import Contact from './Contact.jsx';
@@ -20,7 +21,7 @@ export default function Home() {
       <WhatWeDo />
       <TheGroup />
       <About />
-      <Team />
+      {/* <Team /> */}
       <Testimonials />
       <Careers />
       <Contact />
