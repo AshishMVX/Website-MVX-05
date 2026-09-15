@@ -113,8 +113,12 @@ export const HashLink = forwardRef(function HashLink({ to, children, className, 
     }
   };
 
+  // Render an absolute-to-home href ("/#work") so the link is valid to copy,
+  // open in a new tab, or crawl — while the click handler drives the in-app
+  // navigate-then-scroll behaviour.
+  const href = to.startsWith('#') ? `/${to}` : to;
   return (
-    <a ref={ref} href={to} className={className} onClick={handleClick}>
+    <a ref={ref} href={href} className={className} onClick={handleClick}>
       {children}
     </a>
   );

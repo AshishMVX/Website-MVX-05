@@ -5,6 +5,8 @@ import Loader from './components/Loader.jsx';
 const Home = lazy(() => import('./components/Home.jsx'));
 const TermsAndConditions = lazy(() => import('./components/TermsAndConditions.jsx'));
 const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy.jsx'));
+const CancellationRefund = lazy(() => import('./components/CancellationRefund.jsx'));
+const ShippingExchange = lazy(() => import('./components/ShippingExchange.jsx'));
 const CareersPage = lazy(() => import('./components/CareersPage.jsx'));
 const ContactPage = lazy(() => import('./components/ContactPage.jsx'));
 const WorkPage = lazy(() => import('./components/WorkPage.jsx'));
@@ -21,6 +23,8 @@ function Routes() {
   if (path === '/') return <Home />;
   if (path === '/terms-and-conditions') return <TermsAndConditions />;
   if (path === '/privacy-policy') return <PrivacyPolicy />;
+  if (path === '/cancellation-and-refund') return <CancellationRefund />;
+  if (path === '/shipping-and-exchange') return <ShippingExchange />;
   if (path === '/careers') return <CareersPage />;
   if (path.startsWith('/careers/')) return <JobDetailPage slug={path.slice('/careers/'.length)} />;
   if (path === '/contact') return <ContactPage />;

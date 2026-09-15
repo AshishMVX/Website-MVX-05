@@ -55,25 +55,70 @@ export const careerTags = ['Engineering', 'AI / ML', 'Design', 'Growth', 'Infra'
 
 export const CONTACT_EMAIL = 'hello@mervixtechnology.com';
 
-/** PLACEHOLDER — replace with the real number (with country code) before launch. */
-export const CONTACT_PHONE_DISPLAY = '+91 XX XXXX XXXX';
+/**
+ * The verified contracting entity. GeoLink, SkoutHaus, SkoutsMedia and
+ * CoreCyrus are brand names under which Mervix Technology Pvt Ltd operates —
+ * they are NOT assumed to be separately incorporated companies here. The
+ * contracting entity for a specific engagement is whatever the applicable
+ * order form, proposal or statement of work names.
+ */
+export const LEGAL_ENTITY = 'Mervix Technology Pvt Ltd';
+export const BRAND = 'Mervix';
 
-/** PLACEHOLDER office info — replace with the real address before launch. */
+/**
+ * Publication metadata for the customer-facing policies. Updated when a policy
+ * revision is adopted and published. (Adoption/publication date of this set.)
+ */
+export const POLICY_EFFECTIVE_DATE = 'September 15, 2026';
+export const POLICY_UPDATED_DATE = 'September 15, 2026';
+
+/**
+ * PLACEHOLDER — no verified public business phone number is available yet.
+ * `CONTACT_PHONE_HREF` stays empty until a real number is supplied; every
+ * phone-dependent UI element checks `PHONE_AVAILABLE` and stays hidden while
+ * it is false, so no fake number is shown to customers.
+ */
+export const CONTACT_PHONE_DISPLAY = '+91 XX XXXX XXXX';
+export const CONTACT_PHONE_HREF = '';
+export const PHONE_AVAILABLE = Boolean(CONTACT_PHONE_HREF);
+
+/**
+ * Office (not confirmed as the registered office). Presented as an office
+ * address until registered-office status is verified. The night shift begins
+ * in the evening IST and ends the following morning IST.
+ */
 export const OFFICE = {
   line1: 'Mervix Technology Pvt Ltd',
   line2: '4th Floor, Srinivasaa Spaces, 252-253, Kandasamy layout, Pappanaickenpalayam, Coimbatore, Tamil Nadu 641037',
   hours: [
-    { days: 'Monday – Friday', time: '6:30 PM – 3:30 AM IST' },
+    { days: 'Monday – Friday', time: '6:30 PM – 3:30 AM IST (overnight — ends the following morning)' },
     { days: 'Saturday – Sunday', time: 'Closed' },
   ],
+  hoursNote: 'Our working hours run overnight in India Standard Time (IST): each shift begins at 6:30 PM and ends at 3:30 AM the following morning.',
   mapQuery: 'Srinivasaa Spaces, 252-253, Kandasamy layout, Pappanaickenpalayam, Coimbatore, Tamil Nadu 641037',
 };
 
-/** PLACEHOLDER — inert until real profile URLs are added. */
+/**
+ * Enquiry categories for the contact form. All route to the same verified
+ * inbox — these are not separate departments or dedicated addresses.
+ */
+export const CONTACT_TOPICS = [
+  'Sales / project enquiry',
+  'Existing service support',
+  'Billing',
+  'Cancellation / refund',
+  'Digital delivery / exchange',
+  'Privacy request',
+];
+
+/**
+ * PLACEHOLDER — inert until real profile URLs are added. Only entries with a
+ * `url` are rendered; while every entry lacks one, the social block is hidden.
+ */
 export const SOCIAL_LINKS = [
-  { name: 'LinkedIn' },
-  { name: 'X (Twitter)' },
-  { name: 'Instagram' },
+  { name: 'LinkedIn', url: '' },
+  { name: 'X (Twitter)', url: '' },
+  { name: 'Instagram', url: '' },
 ];
 
 export const SERVICE_OPTIONS = [

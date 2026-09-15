@@ -33,12 +33,15 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      <div className="footer-legal">
+        <Link to="/terms-and-conditions">Terms &amp; Conditions</Link>
+        <Link to="/privacy-policy">Privacy Policy</Link>
+        <Link to="/cancellation-and-refund">Cancellation &amp; Refund</Link>
+        <Link to="/shipping-and-exchange">Shipping &amp; Exchange</Link>
+        <Link to="/contact">Contact Us</Link>
+      </div>
       <div className="footer-base">
         <span>© 2026 Mervix Technology Pvt Ltd. All rights reserved.</span>
-        <div className="footer-legal">
-          <Link to="/terms-and-conditions">Terms &amp; Conditions</Link>
-          <Link to="/privacy-policy">Privacy Policy</Link>
-        </div>
         <span>Built across four companies, one vision.</span>
       </div>
     </footer>
