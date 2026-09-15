@@ -27,7 +27,7 @@ export default function Footer() {
             <HashLink to="#work">What we do</HashLink>
             <Link to="/case-studies">Case studies</Link>
             <Link to="/insights">Insights</Link>
-            <HashLink to="#about">About</HashLink>
+            <Link to="/about-us">About</Link>
             <Link to="/careers">Careers</Link>
             <Link to="/contact">Contact</Link>
           </div>

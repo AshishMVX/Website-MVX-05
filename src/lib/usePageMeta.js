@@ -15,17 +15,32 @@ function ensureCanonicalEl() {
   return el;
 }
 
+/** Sets the content of a meta tag if it exists (the og and twitter tags live in index.html). */
+function setMeta(selector, content) {
+  const el = document.querySelector(selector);
+  if (el) el.setAttribute('content', content);
+}
+
 /**
- * Sets the document title + meta description for the active page, and — when a
- * `canonicalPath` is given (e.g. "/privacy-policy") — the canonical URL. Resets
- * title/description on unmount; the canonical link is left pointing at the last
- * active route so a direct load always has one.
+ * Sets the document title + meta description for the active page, keeps the
+ * Open Graph / Twitter title + description in sync, and — when a `canonicalPath`
+ * is given (e.g. "/about-us") — the canonical URL. Pass `exactTitle: true` in
+ * the options to use `title` verbatim (no "— Mervix Group" suffix). Resets
+ * title/description/social tags on unmount.
  */
-export function usePageMeta(title, description, canonicalPath) {
+export function usePageMeta(title, description, canonicalPath, options = {}) {
+  const { exactTitle = false } = options;
   useEffect(() => {
-    document.title = title ? `${title} — Mervix Group` : DEFAULT_TITLE;
+    const fullTitle = title ? (exactTitle ? title : `${title} — Mervix Group`) : DEFAULT_TITLE;
+    const desc = description || DEFAULT_DESCRIPTION;
+
+    document.title = fullTitle;
     const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.setAttribute('content', description || DEFAULT_DESCRIPTION);
+    if (metaDesc) metaDesc.setAttribute('content', desc);
+    setMeta('meta[property="og:title"]', fullTitle);
+    setMeta('meta[property="og:description"]', desc);
+    setMeta('meta[name="twitter:title"]', fullTitle);
+    setMeta('meta[name="twitter:description"]', desc);
 
     if (canonicalPath) {
       ensureCanonicalEl().setAttribute('href', `${BASE_URL}${canonicalPath}`);
@@ -34,6 +49,10 @@ export function usePageMeta(title, description, canonicalPath) {
     return () => {
       document.title = DEFAULT_TITLE;
       if (metaDesc) metaDesc.setAttribute('content', DEFAULT_DESCRIPTION);
+      setMeta('meta[property="og:title"]', DEFAULT_TITLE);
+      setMeta('meta[property="og:description"]', DEFAULT_DESCRIPTION);
+      setMeta('meta[name="twitter:title"]', DEFAULT_TITLE);
+      setMeta('meta[name="twitter:description"]', DEFAULT_DESCRIPTION);
     };
-  }, [title, description, canonicalPath]);
+  }, [title, description, canonicalPath, exactTitle]);
 }

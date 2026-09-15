@@ -8,15 +8,7 @@ const NAV_LINKS = [
   { type: 'hash', to: '#group', label: 'The group', trackContentType: 'group' },
   { type: 'link', to: '/case-studies', label: 'Case studies', trackContentType: 'case_studies_nav' },
   { type: 'link', to: '/insights', label: 'Insights', trackContentType: 'insights_nav' },
-  {
-    type: 'dropdown',
-    label: 'About',
-    children: [
-      { type: 'hash', to: '#about', label: 'About us' },
-      // Meet the team: temporarily disabled, re-add when the page comes back
-      // { type: 'link', to: '/meet-the-team', label: 'Meet the team', highlight: true },
-    ],
-  },
+  { type: 'link', to: '/about-us', label: 'About', trackContentType: 'about' },
   { type: 'link', to: '/careers', label: 'Careers', trackContentType: 'careers' },
 ];
 

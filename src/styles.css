@@ -1206,3 +1206,183 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   transition: color .2s ease;
 }
 .mtt-join-email:hover { color: #fff; }
+
+/* ════════════════════════════════════════════════════════════
+   About Us  (/about-us)  —  namespaced `abt-*`
+   ════════════════════════════════════════════════════════════ */
+
+/* A · Hero */
+.abt-hero {
+  position: relative; z-index: 1;
+  max-width: 1400px; margin: 0 auto;
+  padding: clamp(120px, 15vw, 180px) var(--pad-x) clamp(50px, 7vw, 90px);
+  display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+@media (max-width: 900px) { .abt-hero { grid-template-columns: 1fr; gap: 44px; } }
+.abt-hero-copy { max-width: 620px; }
+.abt-hero-copy h1 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(40px, 5.6vw, 76px); line-height: 1.03; letter-spacing: -.025em;
+  margin-bottom: 24px;
+}
+.abt-hero-copy p { font-size: clamp(17px, 1.4vw, 20px); line-height: 1.62; color: var(--ink-3); max-width: 540px; margin-bottom: 34px; }
+.abt-hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; }
+
+/* A · Hero connective visual */
+.abt-hero-visual-wrap { display: flex; justify-content: center; }
+.abt-visual {
+  position: relative; width: min(100%, 460px); aspect-ratio: 1 / 1;
+}
+.abt-visual-lines { position: absolute; inset: 0; width: 100%; height: 100%; }
+.abt-visual-hub {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2;
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 14px 26px; border-radius: 999px;
+  background: #fff; border: 1px solid var(--line-2);
+  box-shadow: 0 22px 50px -22px rgba(43,127,212,.5);
+  font-family: var(--font-display); font-weight: 700; font-size: 19px; letter-spacing: -.01em; color: var(--ink);
+}
+.abt-visual-hub-dot { width: 11px; height: 11px; border-radius: 50%; background: var(--grad); box-shadow: 0 0 0 4px rgba(43,127,212,.12); }
+.abt-visual-node {
+  position: absolute; z-index: 2; width: 42%;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 3px;
+  padding: 16px 18px; border-radius: 18px;
+  background: rgba(255,255,255,.86); backdrop-filter: blur(6px);
+  border: 1px solid var(--line); box-shadow: 0 16px 34px -22px rgba(14,20,27,.34);
+}
+.abt-visual-node--tl { top: 2%; left: 0; }
+.abt-visual-node--tr { top: 2%; right: 0; align-items: flex-end; text-align: right; }
+.abt-visual-node--bl { bottom: 2%; left: 0; }
+.abt-visual-node--br { bottom: 2%; right: 0; align-items: flex-end; text-align: right; }
+.abt-visual-node-icon {
+  width: 38px; height: 38px; border-radius: 11px; margin-bottom: 5px;
+  display: inline-flex; align-items: center; justify-content: center;
+  color: #fff; background: var(--grad);
+}
+.abt-visual-node-label { font-family: var(--font-display); font-weight: 600; font-size: 16px; color: var(--ink); }
+.abt-visual-node-desc { font-size: 12.5px; color: var(--ink-5); line-height: 1.35; }
+@media (max-width: 420px) {
+  .abt-visual-node { width: 46%; padding: 12px 13px; }
+  .abt-visual-node-desc { display: none; }
+}
+
+/* B · Who we are */
+.abt-who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 72px); align-items: start; }
+@media (max-width: 860px) { .abt-who-grid { grid-template-columns: 1fr; gap: 28px; } }
+.abt-who-lead h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(28px, 3.6vw, 46px); line-height: 1.1; letter-spacing: -.02em; }
+.abt-who-body { padding-top: 6px; }
+.abt-lead-p { font-size: clamp(18px, 1.7vw, 22px); line-height: 1.55; color: var(--ink); font-weight: 500; margin-bottom: 20px; }
+.abt-who-body p { font-size: 17px; line-height: 1.7; color: var(--ink-3); }
+
+/* C · What we do — editorial numbered panels */
+.abt-caps-list { display: flex; flex-direction: column; gap: 18px; }
+.abt-cap-panel {
+  display: grid; grid-template-columns: 92px minmax(0, 1.4fr) minmax(0, 1fr); gap: clamp(20px, 3vw, 44px);
+  align-items: start;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 24px;
+  padding: clamp(26px, 3.4vw, 40px);
+  transition: border-color .4s, box-shadow .4s, transform .4s var(--ease-out);
+}
+.abt-cap-panel:hover { border-color: #D8E2EA; box-shadow: 0 26px 54px -30px rgba(14,20,27,.26); }
+.abt-cap-num { font-family: var(--font-display); font-weight: 700; font-size: clamp(34px, 4vw, 50px); line-height: 1; letter-spacing: -.02em; }
+.abt-cap-main h3 { font-family: var(--font-display); font-size: clamp(20px, 2.1vw, 26px); font-weight: 600; letter-spacing: -.01em; margin-bottom: 12px; }
+.abt-cap-main p { font-size: 16px; line-height: 1.66; color: var(--ink-3); }
+.abt-cap-items { list-style: none; display: flex; flex-direction: column; gap: 10px; padding-top: 4px; }
+.abt-cap-items li { position: relative; padding-left: 20px; font-size: 15px; line-height: 1.45; color: var(--ink-2); }
+.abt-cap-items li::before {
+  content: ''; position: absolute; left: 0; top: 8px; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--grad);
+}
+@media (max-width: 900px) {
+  .abt-cap-panel { grid-template-columns: 64px 1fr; grid-template-areas: 'num main' 'items items'; row-gap: 22px; }
+  .abt-cap-num { grid-area: num; } .abt-cap-main { grid-area: main; } .abt-cap-items { grid-area: items; }
+  .abt-cap-items { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; }
+}
+@media (max-width: 560px) { .abt-cap-items { grid-template-columns: 1fr; } }
+
+/* D · Specialized brands (dark) */
+.abt-brands-band { position: relative; z-index: 1; background: var(--dark); color: #fff; }
+.abt-brands { position: relative; overflow: hidden; }
+.abt-glow { position: absolute; border-radius: 50%; filter: blur(30px); pointer-events: none; }
+.abt-glow--green { top: -10%; left: -6%; width: 360px; height: 360px; background: radial-gradient(circle, rgba(47,168,79,.26), transparent 70%); }
+.abt-glow--blue { bottom: -18%; right: -6%; width: 420px; height: 420px; background: radial-gradient(circle, rgba(43,127,212,.28), transparent 70%); }
+.abt-brands-head { position: relative; z-index: 1; max-width: 680px; margin-bottom: clamp(40px, 5vw, 64px); }
+.abt-brands-head .eyebrow { color: #5FD08C; }
+.abt-brands-head h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(28px, 3.6vw, 46px); line-height: 1.1; letter-spacing: -.02em; margin-bottom: 18px; }
+.abt-brands-head p { font-size: 17px; line-height: 1.62; color: #A7B4C0; }
+.abt-brands-list { position: relative; z-index: 1; display: flex; flex-direction: column; }
+.abt-brand-row {
+  display: grid; grid-template-columns: minmax(200px, .8fr) minmax(0, 2fr); gap: clamp(20px, 4vw, 60px);
+  padding: clamp(28px, 3.4vw, 40px) 0; border-top: 1px solid rgba(255,255,255,.1);
+}
+.abt-brand-row:last-child { border-bottom: 1px solid rgba(255,255,255,.1); }
+@media (max-width: 760px) { .abt-brand-row { grid-template-columns: 1fr; gap: 14px; } }
+.abt-brand-name { display: flex; flex-direction: column; gap: 14px; }
+.abt-brand-rule { width: 40px; height: 4px; border-radius: 999px; }
+.abt-brand-name h3 { font-family: var(--font-display); font-weight: 700; font-size: clamp(24px, 2.6vw, 32px); letter-spacing: -.01em; }
+.abt-brand-tagline { font-family: var(--font-display); font-weight: 600; font-size: clamp(17px, 1.7vw, 20px); color: #fff; margin-bottom: 12px; }
+.abt-brand-copy p:last-child { font-size: 16px; line-height: 1.66; color: #A7B4C0; }
+
+/* E · How we work — timeline */
+.abt-steps { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 2px; border: 1px solid var(--line); border-radius: 24px; overflow: hidden; background: var(--line); }
+@media (max-width: 720px) { .abt-steps { grid-template-columns: 1fr; } }
+.abt-step { display: flex; gap: 20px; align-items: flex-start; background: var(--surface); padding: clamp(26px, 3vw, 40px); }
+.abt-step-num {
+  flex: none; font-family: var(--font-display); font-weight: 700; font-size: 18px;
+  width: 46px; height: 46px; border-radius: 13px;
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--blue); background: rgba(43,127,212,.09); border: 1px solid rgba(43,127,212,.16);
+}
+.abt-step-body h3 { font-family: var(--font-display); font-size: 20px; font-weight: 600; margin-bottom: 8px; letter-spacing: -.01em; }
+.abt-step-body p { font-size: 15.5px; line-height: 1.62; color: var(--ink-4); }
+
+/* F · Mortgage spotlight */
+.abt-mortgage-panel {
+  display: grid; grid-template-columns: 1.5fr 1fr; gap: clamp(28px, 4vw, 56px);
+  align-items: center;
+  border: 1px solid var(--line); border-radius: 28px; background: #F3F7FA;
+  padding: clamp(30px, 4.4vw, 60px);
+}
+@media (max-width: 820px) { .abt-mortgage-panel { grid-template-columns: 1fr; gap: 28px; } }
+.abt-mortgage-copy h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(26px, 3.2vw, 42px); line-height: 1.12; letter-spacing: -.02em; margin-bottom: 18px; }
+.abt-mortgage-copy p { font-size: 16.5px; line-height: 1.7; color: var(--ink-3); margin-bottom: 14px; }
+.abt-mortgage-copy p:last-child { margin-bottom: 0; }
+.abt-mortgage-side { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 26px 28px; }
+.abt-mortgage-side-label { font-family: var(--font-display); font-size: 12.5px; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; color: var(--ink-5); }
+.abt-mortgage-services { list-style: none; margin-top: 16px; display: flex; flex-direction: column; gap: 13px; }
+.abt-mortgage-services li { display: flex; align-items: center; gap: 12px; font-size: 15.5px; color: var(--ink-2); font-weight: 500; }
+.abt-tick { flex: none; width: 18px; height: 18px; border-radius: 50%; background: var(--grad); position: relative; }
+.abt-tick::after { content: ''; position: absolute; left: 6px; top: 4px; width: 4px; height: 8px; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+
+/* G · Principles — rule-separated, not cards */
+.abt-principles-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+@media (max-width: 700px) { .abt-principles-grid { grid-template-columns: 1fr; } }
+.abt-principle { padding: clamp(24px, 3vw, 36px); border-top: 1px solid var(--line); }
+.abt-principle:nth-child(odd) { border-right: 1px solid var(--line); }
+@media (max-width: 700px) { .abt-principle:nth-child(odd) { border-right: none; } }
+.abt-principle h3 { font-family: var(--font-display); font-size: clamp(19px, 2vw, 23px); font-weight: 600; letter-spacing: -.01em; margin-bottom: 10px; }
+.abt-principle h3::before { content: ''; display: block; width: 30px; height: 3px; border-radius: 999px; background: var(--grad); margin-bottom: 16px; }
+.abt-principle p { font-size: 16px; line-height: 1.66; color: var(--ink-3); max-width: 44ch; }
+
+/* H · Final CTA */
+.abt-cta-panel {
+  position: relative; overflow: hidden; text-align: center;
+  border-radius: 30px; background: var(--dark); color: #fff;
+  padding: clamp(48px, 7vw, 88px) clamp(24px, 5vw, 72px);
+}
+.abt-cta-panel h2 { position: relative; z-index: 1; font-family: var(--font-display); font-weight: 700; font-size: clamp(30px, 4.4vw, 58px); line-height: 1.06; letter-spacing: -.025em; margin-bottom: 20px; }
+.abt-cta-panel > p { position: relative; z-index: 1; font-size: clamp(16px, 1.5vw, 19px); line-height: 1.6; color: #A7B4C0; max-width: 560px; margin: 0 auto 34px; }
+.abt-cta-actions { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 16px 26px; align-items: center; justify-content: center; }
+.abt-cta-actions .btn { padding: 16px 32px; }
+.abt-cta-mail { font-family: var(--font-display); font-weight: 500; font-size: 15.5px; color: #CDD7E0; text-decoration: underline; text-underline-offset: 3px; }
+.abt-cta-mail:hover { color: #fff; }
+
+/* Motion: gentle hub pulse only when motion is allowed */
+@media (prefers-reduced-motion: no-preference) {
+  .abt-visual-hub-dot { animation: abtPulse 2.8s ease-in-out infinite; }
+}
+@keyframes abtPulse {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(43,127,212,.12); }
+  50% { box-shadow: 0 0 0 9px rgba(43,127,212,.05); }
+}

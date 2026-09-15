@@ -6,7 +6,7 @@ import { caseStudies, posts } from '../src/data/content.js';
 const BASE_URL = 'https://mervixtechnology.com';
 
 const staticRoutes = [
-  '/', '/careers', '/case-studies', '/insights', '/contact',
+  '/', '/about-us', '/careers', '/case-studies', '/insights', '/contact',
   '/terms-and-conditions', '/privacy-policy',
   '/cancellation-and-refund', '/shipping-and-exchange',
 ];
