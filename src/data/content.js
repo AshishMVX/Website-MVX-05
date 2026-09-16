@@ -92,9 +92,10 @@ export const OFFICE = {
   line2: '4th Floor, Srinivasaa Spaces, 252-253, Kandasamy layout, Pappanaickenpalayam, Coimbatore, Tamil Nadu 641037',
   hours: [
     { days: 'Monday – Friday', time: '6:30 PM – 3:30 AM IST (overnight — ends the following morning)' },
-    { days: 'Saturday – Sunday', time: 'Closed' },
+    { days: '1st & 3rd Saturday', time: '2:00 PM – 8:00 PM IST' },
+    { days: 'Other Saturdays & Sunday', time: 'Closed' },
   ],
-  hoursNote: 'Our working hours run overnight in India Standard Time (IST): each shift begins at 6:30 PM and ends at 3:30 AM the following morning.',
+  hoursNote: 'Weekday hours run overnight in India Standard Time (IST): each shift begins at 6:30 PM and ends at 3:30 AM the following morning. The 1st and 3rd Saturday of each month are working days, 2:00 PM to 8:00 PM IST.',
   mapQuery: 'Srinivasaa Spaces, 252-253, Kandasamy layout, Pappanaickenpalayam, Coimbatore, Tamil Nadu 641037',
 };
 

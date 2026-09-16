@@ -9,6 +9,10 @@ function tint(hex) {
   return `rgba(${(n >> 16) & 255},${(n >> 8) & 255},${n & 255},0.1)`;
 }
 
+// THE GROUP showcases the four specialist brands; the group-level Mervix
+// operations entry is intentionally excluded from this grid.
+const groupCompanies = companies.filter((c) => c.name !== 'Mervix');
+
 export default function TheGroup() {
   return (
     <section id="group" className="group-band">
@@ -25,7 +29,7 @@ export default function TheGroup() {
         </div>
 
         <div className="group-grid">
-          {companies.map((c, i) => (
+          {groupCompanies.map((c, i) => (
             <Reveal
               key={c.name}
               as={Link}

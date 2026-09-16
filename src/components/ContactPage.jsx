@@ -156,9 +156,15 @@ export default function ContactPage() {
             </div>
           </div>
           <div className="page-hero-aside-divider" />
-          <div className="page-hero-aside-meta-item" style={{ fontSize: 13, color: 'var(--ink-4)' }}>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Mon – Fri &nbsp;·&nbsp; 6:30 PM – 3:30 AM IST (overnight)
+          <div className="page-hero-aside-hours">
+            <div className="page-hero-aside-meta-item" style={{ fontSize: 13, color: 'var(--ink-4)' }}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Mon – Fri &nbsp;·&nbsp; 6:30 PM – 3:30 AM IST (overnight)
+            </div>
+            <div className="page-hero-aside-meta-item" style={{ fontSize: 13, color: 'var(--ink-4)' }}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              1st &amp; 3rd Sat &nbsp;·&nbsp; 2:00 PM – 8:00 PM IST
+            </div>
           </div>
         </Reveal>
       </div>

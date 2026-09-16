@@ -516,6 +516,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .page-hero-aside-tags { display: flex; flex-wrap: wrap; gap: 8px; }
 .page-hero-aside-tag { font-size: 12.5px; font-weight: 500; color: var(--ink-3); border: 1px solid var(--line-2); padding: 6px 13px; border-radius: 999px; }
 .page-hero-aside-meta { display: flex; flex-direction: column; gap: 14px; }
+.page-hero-aside-hours { display: flex; flex-direction: column; gap: 10px; }
 .page-hero-aside-meta-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--ink-3); }
 .page-hero-aside-meta-item svg { color: var(--ink-5); flex-shrink: 0; }
 .page-hero-aside-label { font-size: 12px; font-weight: 600; letter-spacing: .08em; color: var(--ink-5); text-transform: uppercase; margin-bottom: -6px; }
@@ -1321,6 +1322,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .abt-brand-name { display: flex; flex-direction: column; gap: 14px; }
 .abt-brand-rule { width: 40px; height: 4px; border-radius: 999px; }
 .abt-brand-name h3 { font-family: var(--font-display); font-weight: 700; font-size: clamp(24px, 2.6vw, 32px); letter-spacing: -.01em; }
+.abt-brand-focus { font-size: 12.5px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: #8795A2; }
 .abt-brand-tagline { font-family: var(--font-display); font-weight: 600; font-size: clamp(17px, 1.7vw, 20px); color: #fff; margin-bottom: 12px; }
 .abt-brand-copy p:last-child { font-size: 16px; line-height: 1.66; color: #A7B4C0; }
 

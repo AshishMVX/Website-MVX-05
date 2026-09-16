@@ -55,19 +55,29 @@ const CAPABILITIES = [
 
 const BRANDS = [
   {
+    name: 'GeoLink',
+    focus: 'Software & products',
+    accent: '#4FCB6E',
+    tagline: 'Software and SaaS, engineered to scale.',
+    copy: 'Custom software, web and mobile applications, and SaaS products designed and built to scale across web, mobile, and cloud — from a first MVP to enterprise-grade systems.',
+  },
+  {
     name: 'CoreCyrus',
+    focus: 'Cloud & infrastructure',
     accent: '#3F9BE0',
     tagline: 'Infrastructure that supports what comes next.',
     copy: 'Cloud engineering, networking, cybersecurity, and hybrid environments designed around reliability, scalability, and operational continuity.',
   },
   {
     name: 'SkoutHaus',
-    accent: '#46C79E',
+    focus: 'Growth & brand',
+    accent: '#2CC0A6',
     tagline: 'A clearer path from brand to growth.',
     copy: 'Brand strategy, creative production, paid media, funnel optimization, and analytics brought together to strengthen customer acquisition and improve revenue performance.',
   },
   {
     name: 'SkoutsMedia',
+    focus: 'Experiences & media',
     accent: '#5EA8E6',
     tagline: 'Experiences that carry the brand further.',
     copy: 'Corporate events, digital experiences, and brand activations connected with media production, content amplification, and performance marketing.',
@@ -246,9 +256,9 @@ export default function AboutUs() {
             <Reveal className="eyebrow">SPECIALIZED EXPERTISE. SHARED DIRECTION.</Reveal>
             <Reveal as="h2" delay={70} id="abt-brands-h">Distinct strengths, working together.</Reveal>
             <Reveal as="p" delay={130}>
-              Our specialized brands extend Mervix&rsquo;s capabilities across infrastructure,
-              growth, and experiences, bringing focused expertise to different parts of the
-              same business journey.
+              Our specialized brands extend Mervix&rsquo;s capabilities across software,
+              infrastructure, growth, and experiences, bringing focused expertise to
+              different parts of the same business journey.
             </Reveal>
           </div>
           <div className="abt-brands-list">
@@ -257,6 +267,7 @@ export default function AboutUs() {
                 <div className="abt-brand-name">
                   <span className="abt-brand-rule" style={{ background: b.accent }} />
                   <h3 style={{ color: b.accent }}>{b.name}</h3>
+                  <span className="abt-brand-focus">{b.focus}</span>
                 </div>
                 <div className="abt-brand-copy">
                   <p className="abt-brand-tagline">{b.tagline}</p>
