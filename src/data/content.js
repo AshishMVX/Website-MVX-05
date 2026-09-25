@@ -151,8 +151,6 @@ export const team = [
   { name: 'Archana Rajan Nair', role: 'Junior Executive', company: 'Mervix Group', focus: 'Handles the core operations of the company.' },
   { name: 'Shivesh', role: 'Network Architect', company: 'CoreCyrus', focus: 'Responsible for the networking and hardware of the company' },
   { name: 'Praveen Raj R', role: 'Junior Associate', company: 'Mervix Group', focus: 'Handles the core operations of the company.' },
-  { name: 'Ramya Srinivas Reddy', role: 'Junior Software Engineer', company: 'GeoLink', focus: 'Works on the cloud based SaaS platform' },
-  { name: 'Shibin Fathima Z', role: 'Graphic Designer', company: 'SkoutHaus', focus: 'Creates designs and graphics for SkoutHaus' },
 ];
 
 
